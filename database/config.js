@@ -10,7 +10,7 @@ const dbConnection = async() => {
 
         console.log('Base de datos online');
 
-    } catch (err) {
+    } catch (err) { 
         console.log(err);
         throw new Error('Error iniciando la base de datos');
     }
