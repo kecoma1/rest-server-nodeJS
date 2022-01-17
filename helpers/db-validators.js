@@ -7,7 +7,7 @@ const esRoleValido = async(rol = '') => {
     if (!existeRol)
         throw new Error(`El rol ${rol} no existe`);
 
-}
+} 
 
 const emailExiste = async(correo = '') => {
     const existeEmail = await Usuario.findOne({ correo });
