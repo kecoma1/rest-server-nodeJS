@@ -59,14 +59,14 @@ const usuariosPost = async(req, res) => {
 const usuariosDelete = async(req, res) => {
     
     const { id } = req.params;
-
-    // const usuario = await Usuario.findByIdAndDelete(id);
+    const uid = req.uid;
 
     const usuario = await Usuario.findByIdAndUpdate(id, {estado: false});
+    const usuarioAutenticado = req.usuario;
 
     res.json({
-        msg: "delete API key",
-        id
+        usuario,
+        usuarioAutenticado
     });
 }
 
