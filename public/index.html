@@ -65,7 +65,6 @@
             // Sign out
             google.accounts.id.revoke(localStorage.getItem('email'), done => {
                 localStorage.clear();
-                localStorage.reload();
             });
         }
     </script>
