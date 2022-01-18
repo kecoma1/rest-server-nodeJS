@@ -18,7 +18,7 @@ const esAdminRole = (req, res, next) => {
 }
 
 const tieneRole = (...roles) => {
-    console.log(roles);
+
     return (req, res, next) => {
 
         if (!req.usuario)
