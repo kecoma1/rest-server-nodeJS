@@ -1,6 +1,12 @@
 const { isValidObjectId } = require('mongoose');
-const Role = require('../models/role');
-const Usuario = require('../models/usuario');
+
+const { 
+    Categoria, 
+    Role, 
+    Usuario,
+    Producto 
+} = require('../models');
+
 
 const esRoleValido = async(rol = '') => {
     const existeRol = await Role.findOne({ rol });
@@ -24,8 +30,28 @@ const existeUsuarioPorId = async(id = '') => {
         throw new Error(`ID inexistente ${ id }. No existe`);
 }
 
+const existeCategoria = async(id = '') => {
+    if (!isValidObjectId(id))
+        throw new Error(`ID invalido ${ id }`);
+    
+    const existeCategoria = await Categoria.findById(id);
+    if (!existeCategoria)
+        throw new Error(`ID inexistente ${ id }. No existe`);
+}
+
+const existeProducto = async(id = '') => {
+    if (!isValidObjectId(id))
+        throw new Error(`ID invalido ${ id }`);
+    
+    const existeProducto = await Producto.findById(id);
+    if (!existeProducto)
+        throw new Error(`ID inexistente ${ id }. No existe`);
+}
+
 module.exports = {
     esRoleValido,
     emailExiste,
-    existeUsuarioPorId
+    existeUsuarioPorId,
+    existeCategoria,
+    existeProducto
 }

@@ -3,10 +3,10 @@ const bcryptjs = require('bcryptjs');
 
 const usuariosGet = async(req, res) => {
 
-    const { limite = '5', desde = '0' } = req.query;
+    const { limite = '0', desde = '0' } = req.query;
     const query = {estado: true}
 
-    if (isNaN(limite) && isNaN(desde)) 
+    if (isNaN(limite) || isNaN(desde)) 
         res.status(400).json({
             msg: "<limite> y <desde> deben ser números"
         });
@@ -29,7 +29,6 @@ const usuariosPut = async(req, res) => {
     const { id } = req.params;
     const { _id, password, google, correo, ...resto } = req.body;
 
-    // TODO: Validar con la base de datos
     // Actualización de la contrasena
     if ( password ) { 
         const salt = bcryptjs.genSaltSync();
