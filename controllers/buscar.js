@@ -57,7 +57,7 @@ const buscarGenerico = async(modelo, termino = '', res, ...populates) => {
         ]
     }).populate(populates);
 
-    return res.json({
+    return res.json({ 
         results: item
     });
 }
