@@ -1,5 +1,8 @@
 # WebServer + RestServer
 
-Para instalar los paquetes necesarios ```npm install```
+To execute the server: 
+```
+node app
+```
 
-Para ejecutar el servidor ```node app```
+The documentation regarding the API is here https://documenter.getpostman.com/view/19130707/UVXnFZVV
